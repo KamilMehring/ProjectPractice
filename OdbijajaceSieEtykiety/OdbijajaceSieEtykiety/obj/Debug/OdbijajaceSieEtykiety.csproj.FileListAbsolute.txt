@@ -1,0 +1,10 @@
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\bin\Debug\BouncingLabels.exe.config
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\bin\Debug\BouncingLabels.exe
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\bin\Debug\BouncingLabels.pdb
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\OdbijajaceSieEtykiety.csprojAssemblyReference.cache
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\OdbijajaceSieEtykiety.Form1.resources
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\OdbijajaceSieEtykiety.Properties.Resources.resources
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\OdbijajaceSieEtykiety.csproj.GenerateResource.cache
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\OdbijajaceSieEtykiety.csproj.CoreCompileInputs.cache
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\BouncingLabels.exe
+C:\Users\xopero\source\repos\OdbijajaceSieEtykiety\OdbijajaceSieEtykiety\obj\Debug\BouncingLabels.pdb
