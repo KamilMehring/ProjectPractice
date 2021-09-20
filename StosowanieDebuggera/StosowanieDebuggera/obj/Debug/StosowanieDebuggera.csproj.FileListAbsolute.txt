@@ -1,0 +1,14 @@
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.csprojAssemblyReference.cache
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\MainWindow.g.cs
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\App.g.cs
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera_MarkupCompile.cache
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\bin\Debug\StosowanieDebuggera.exe.config
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\bin\Debug\StosowanieDebuggera.exe
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\bin\Debug\StosowanieDebuggera.pdb
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\MainWindow.baml
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.g.resources
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.Properties.Resources.resources
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.csproj.GenerateResource.cache
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.csproj.CoreCompileInputs.cache
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.exe
+C:\Users\xopero\source\repos\StosowanieDebuggera\StosowanieDebuggera\obj\Debug\StosowanieDebuggera.pdb

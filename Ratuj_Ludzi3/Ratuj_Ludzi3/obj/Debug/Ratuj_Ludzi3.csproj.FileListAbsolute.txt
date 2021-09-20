@@ -1,0 +1,15 @@
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.csprojAssemblyReference.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\MainWindow.g.cs
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\App.g.cs
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3_MarkupCompile.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3_MarkupCompile.lref
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\bin\Debug\Ratuj_Ludzi3.exe.config
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\bin\Debug\Ratuj_Ludzi3.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\bin\Debug\Ratuj_Ludzi3.pdb
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\MainWindow.baml
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.g.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.Properties.Resources.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.csproj.GenerateResource.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.csproj.CoreCompileInputs.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Ratuj_Ludzi3\obj\Debug\Ratuj_Ludzi3.pdb
