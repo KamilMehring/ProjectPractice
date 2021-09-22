@@ -42,15 +42,18 @@ namespace OdczytZapis
 
                 
             };
+           
+
             string userText = richTextBox1.Text;
             userText = userText.ToLower();
+            richTextBox1.Text = null;
             for (int index = 0; index < userText.Length; index++)
             {
 
                 char t = userText[index];
                 if (morseCode.ContainsKey(t))
                 {
-                    richTextBox1.Text = (morseCode[t]);
+                    richTextBox1.Text += (morseCode[t]);
                 }
             }
 
