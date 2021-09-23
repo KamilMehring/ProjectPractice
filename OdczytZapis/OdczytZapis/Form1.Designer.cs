@@ -53,6 +53,7 @@ namespace OdczytZapis
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(33, 104);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(240, 101);
@@ -92,6 +93,7 @@ namespace OdczytZapis
             // 
             // richTextBox2
             // 
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox2.Location = new System.Drawing.Point(33, 303);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(240, 125);
@@ -101,18 +103,20 @@ namespace OdczytZapis
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(533, 104);
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox3.Location = new System.Drawing.Point(507, 104);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(212, 101);
+            this.richTextBox3.Size = new System.Drawing.Size(269, 101);
             this.richTextBox3.TabIndex = 6;
             this.richTextBox3.Text = "";
             this.richTextBox3.TextChanged += new System.EventHandler(this.richTextBox3_TextChanged);
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(533, 303);
+            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox4.Location = new System.Drawing.Point(507, 303);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(212, 125);
+            this.richTextBox4.Size = new System.Drawing.Size(269, 125);
             this.richTextBox4.TabIndex = 7;
             this.richTextBox4.Text = "";
             this.richTextBox4.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
