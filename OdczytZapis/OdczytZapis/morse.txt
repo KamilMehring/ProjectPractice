@@ -1,0 +1,156 @@
+ {"a" , ".- "},{"b" , "-..."},{"c" , "-.-."},
+                {"d" , "-.."},{"e" , "."},{"f" , "..-."},
+                {"g" , "--."},{"h" , "...."},{"i" , ".."},
+                {"j" , ".---"},{"k" , "-.-"},{"l" , ".-.."},
+                {"m" , "--"},{"n" , "-."},{"o" , "---"},
+                {"p" , ".--."},{"q" , "--.-"},{"r" , ".-."},
+                {"s" , ".-."},{"t" , "-"},{"u" , "..-"},
+                {"v" , "...-"},{"w" , ".--"},{"x" , "-..-"},
+                {"y" , "-.--"},{"z" , "--.."},{" " ,"  "},
+
+
+
+for (int index = 0; index < morseCode.Length; index++)
+            {
+                
+                char t = morseCode[index];
+                if (userText.ContainsKey(t))
+                {
+                    richTextBox3.Text += (userText[t]);
+                       
+                }
+                
+                
+                             
+            }
+
+
+
+
+
+
+
+
+
+
+   string morseCode = richTextBox3.Text;
+              morseCode = morseCode.ToLower();
+
+
+            foreach (string keyVar in userText.Keys)
+            {
+                if (userText[keyVar] == morseCode)
+                {
+                    richTextBox3.Text += (userText);
+                        
+                }
+                                   
+            }
+
+
+
+
+
+ string morseCode = richTextBox3.Text;
+            morseCode = morseCode.ToLower();
+         
+            for (int index = 0; index < morseCode.Length; index++)
+            {
+
+
+                string t = morseCode;
+                if (userText.ContainsKey(t))
+                {
+                    richTextBox3.Text += (userText[t]);
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1234
+
+
+
+
+ TextReader reader = new StreamReader(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik2.txt");
+
+            richTextBox3.Text = reader.ReadToEnd();
+            reader.Close();
+
+
+            Dictionary<char, String> userText = new Dictionary<char, String>()
+            {
+                       {'a' , ".-"},{'b' , "-..."},{'c' , "-.-."},
+                {'d' , "-.."},{'e' , "."},{'f' , "..-."},
+                {'g' , "--."},{'h' , "...."},{'i' , ".."},
+                {'j' , ".---"},{'k' , "-.-"},{'l' , ".-.."},
+                {'m' , "--"},{'n' , "-."},{'o' , "---"},
+                {'p' , ".--."},{'q' , "--.-"},{'r' , ".-."},
+                {'s' , ".-."},{'t' , "-"},{'u' , "..-"},
+                {'v' , "...-"},{'w' , ".--"},{'x' , "-..-"},
+                {'y' , "-.--"},{'z' , "--.."},{' ' ,"  "},
+
+
+            };
+            
+
+
+
+            string morseCode = richTextBox3.Text;
+            morseCode = morseCode.ToLower();
+         
+            for (int index = 0; index < morseCode.Length; index++)
+            {
+
+
+                char t = morseCode[index];
+                if (userText.ContainsKey(t))
+                {
+                    richTextBox3.Text += (userText[t]);
+                }
+            }
+
+        }

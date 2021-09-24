@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
-
+using System.Diagnostics;
 
 namespace OdczytZapis
 {
@@ -20,17 +19,18 @@ namespace OdczytZapis
             InitializeComponent();
         }
 
- 
-        private void button1_Click(object sender, EventArgs e )
+
+        private void button1_Click(object sender, EventArgs e)
         {
             TextReader reader = new StreamReader(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik.txt");
 
             richTextBox1.Text = reader.ReadToEnd();
             reader.Close();
 
+
             Dictionary<char, String> morseCode = new Dictionary<char, String>()
             {
-                {'a' , ".- "},{'b' , "-..."},{'c' , "-.-."},
+                       {'a' , ".-"},{'b' , "-..."},{'c' , "-.-."},
                 {'d' , "-.."},{'e' , "."},{'f' , "..-."},
                 {'g' , "--."},{'h' , "...."},{'i' , ".."},
                 {'j' , ".---"},{'k' , "-.-"},{'l' , ".-.."},
@@ -40,11 +40,11 @@ namespace OdczytZapis
                 {'v' , "...-"},{'w' , ".--"},{'x' , "-..-"},
                 {'y' , "-.--"},{'z' , "--.."},{' ' ,"  "},
 
-                
-            };
-       
 
-                string  userText = richTextBox1.Text;
+            };
+
+
+            string userText = richTextBox1.Text;
             userText = userText.ToLower();
             richTextBox1.Text = null;
             for (int index = 0; index < userText.Length; index++)
@@ -52,69 +52,62 @@ namespace OdczytZapis
 
 
                 char t = userText[index];
-               
-
                 if (morseCode.ContainsKey(t))
                 {
-                   
                     richTextBox1.Text += (morseCode[t]);
-
                 }
-                
-
-
             }
-
-
             TextWriter writer = new StreamWriter(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik2.txt");
 
             writer.Write(richTextBox1.Text);
 
             writer.Close();
-        } 
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
 
             TextReader reader = new StreamReader(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik2.txt");
 
             richTextBox3.Text = reader.ReadToEnd();
             reader.Close();
 
-            Dictionary<char, String> userText = new Dictionary<char, String>()
+
+            Dictionary<string, String> userText = new Dictionary<string, String>()
             {
-                 {'a' , ".-"},{'b' , "-..."},{'c' , "-.-."},
-                {'d' , "-.."},{'e' , "."},{'f' , "..-."},
-                {'g' , "--."},{'h' , "...."},{'i' , ".."},
-                {'j' , ".---"},{'k' , "-.-"},{'l' , ".-.."},
-                {'m' , "--"},{'n' , "-."},{'o' , "---"},
-                {'p' , ".--."},{'q' , "--.-"},{'r' , ".-."},
-                {'s' , ".-."},{'t' , "-"},{'u' , "..-"},
-                {'v' , "...-"},{'w' , ".--"},{'x' , "-..-"},
-                {'y' , "-.--"},{'z' , "--.."},{' ' ,"  "},
-
-
+                        {"a" , ".-"},{"b" , "-..."},{"c" , "-.-."},
+                {"d" , "-.."},{"e" , "."},{"f" , "..-."},
+                {"g" , "--."},{"h" , "...."},{"i" , ".."},
+                {"j" , ".---"},{"k" , "-.-"},{"l" , ".-.."},
+                {"m" , "--"},{"n" , "-."},{"o" , "---"},
+                {"p" , ".--."},{"q" , "--.-"},{"r" , ".-."},
+                {"s" , ".-."},{"t" , "-"},{"u" , "..-"},
+                {"v" , "...-"},{"w" , ".--"},{"x" , "-..-"},
+                {"y" , "-.--"},{"z" , "--.."},{" " ,"  "}
             };
+
             string morseCode = richTextBox3.Text;
-            morseCode = morseCode.ToLower();
-          
 
+            string[] ssize = morseCode.Split(null); // (',') a , b 
 
-            for (int index = 0; index < morseCode.Length; index++)
+            //string test = "Ala, ma kota";
+
+            //string[] tesst = test.Split(',');
+
+            //for (int x = 0; x < tesst.Length; x++)
+            //{
+            //    Debug.WriteLine(tesst[x]);
+            //}
+
+            string convertedFromMorse = "";
+
+            for(int z = 0; z < ssize.Length; z++)
             {
-
-                char t = morseCode[index];
-                if (userText.ContainsKey(t))
-                {
-                    richTextBox3.Text += (userText[t]);
-                    break;
-                    
-                }
-                
-                
-                             
+                string myKey = userText.FirstOrDefault(x => x.Value == ssize[z]).Key;
+                convertedFromMorse += myKey; 
             }
-        
+            richTextBox3.Text = convertedFromMorse;
         }
         private void button3_Click(object sender, EventArgs e)
         {
