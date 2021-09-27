@@ -1,0 +1,10 @@
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\bin\Debug\Planista 2.0.exe.config
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\bin\Debug\Planista 2.0.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\bin\Debug\Planista 2.0.pdb
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista 2.0.csprojAssemblyReference.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista_2._0.Form1.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista_2._0.Properties.Resources.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista 2.0.csproj.GenerateResource.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista 2.0.csproj.CoreCompileInputs.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista 2.0.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Planista 2.0\Planista 2.0\obj\Debug\Planista 2.0.pdb

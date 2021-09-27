@@ -91,14 +91,6 @@ namespace OdczytZapis
 
             string[] ssize = morseCode.Split(null); // (',') a , b 
 
-            //string test = "Ala, ma kota";
-
-            //string[] tesst = test.Split(',');
-
-            //for (int x = 0; x < tesst.Length; x++)
-            //{
-            //    Debug.WriteLine(tesst[x]);
-            //}
 
             string convertedFromMorse = "";
 
@@ -151,44 +143,39 @@ namespace OdczytZapis
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            TextReader reader = new StreamReader(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik.txt");
+            TextReader reader = new StreamReader(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik3.txt");
 
             richTextBox4.Text = reader.ReadToEnd();
             reader.Close();
 
-            Dictionary<char, String> userText = new Dictionary<char, String>()
+            Dictionary<string, String> numUser = new Dictionary<string, String>()
             {
-                {'a' , "97"},{'b' , "98"},{'c' , "99"},
-                {'d' , "100"},{'e' , "101"},{'f' , "102"},
-                {'g' , "103"},{'h' , "104"},{'i' , "105"},
-                {'j' , "106"},{'k' , "107"},{'l' , "108"},
-                {'m' , "109"},{'n' , "110"},{'o' , "111"},
-                {'p' , "112"},{'q' , "113"},{'r' , "114"},
-                {'s' , "115"},{'t' , "116"},{'u' , "117"},
-                {'v' , "118"},{'w' , "119"},{'x' , "120"},
-                {'y' , "121"},{'z' , "122"},{' ' ,"  "},
-
-
+                {"a" , "97"},{"b" , "98"},{"c" , "99"},
+                {"d" , "100"},{"e" , "101"},{"f" , "102"},
+                {"g" , "103"},{"h" , "104"},{"i" , "105"},
+                {"j" , "106"},{"k" , "107"},{"l" , "108"},
+                {"m" , "109"},{"n" , "110"},{"o" , "111"},
+                {"p" , "112"},{"q" , "113"},{"r" , "114"},
+                {"s" , "115"},{"t" , "116"},{"u" , "117"},
+                {"v" , "118"},{"w" , "119"},{"x" , "120"},
+                {"y" , "121"},{"z" , "122"},{" " ,"  "},
 
             };
             string asciiCode = richTextBox4.Text;
-            asciiCode = asciiCode.ToLower();
-            richTextBox4.Text = null;
-            for (int index = 0; index < asciiCode.Length; index++)
+
+            string[] ssize = asciiCode.Split(null); // (',') a , b 
+
+
+            string convertedFromAscii = "";
+
+            for (int z = 0; z < ssize.Length; z++)
             {
-
-                char t = asciiCode[index];
-                
-                if (userText.ContainsKey(t))
-                {
-                    richTextBox4.Text += (userText[t]);
-                }
+                string myKey = numUser.FirstOrDefault(x => x.Value == ssize[z]).Key;
+                convertedFromAscii += myKey;
             }
-            TextWriter writer = new StreamWriter(@"C:\Users\xopero\source\repos\Ratuj_Ludzi3\OdczytZapis\OdczytZapis\plik4.txt");
-
-            writer.Write(richTextBox2.Text);
-
-            writer.Close();
+            richTextBox4.Text = convertedFromAscii;
+        
+    
         }
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {

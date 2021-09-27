@@ -1,0 +1,10 @@
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\bin\Debug\Kalkulator kroków.exe.config
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\bin\Debug\Kalkulator kroków.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\bin\Debug\Kalkulator kroków.pdb
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator kroków.csprojAssemblyReference.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator_kroków.Form1.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator_kroków.Properties.Resources.resources
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator kroków.csproj.GenerateResource.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator kroków.csproj.CoreCompileInputs.cache
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator kroków.exe
+C:\Users\xopero\source\repos\Ratuj_Ludzi3\Kalkulator kroków\Kalkulator kroków\obj\Debug\Kalkulator kroków.pdb
