@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace Planista_2._0
 {
-    class BirthdayParty
+    class BirthdayParty : Party
     {
-        public const int CostOfFoodPerPerson = 25;
-
-        public int NumberOfPeople { get; set; }
-        
-        public bool FancyDecorations { get; set; }
-
-        public string CakeWriting { get; set; }
-
         public BirthdayParty(int numberOfPeople ,
             bool fancyDecorations , string cakeWriting)
         {
@@ -23,7 +15,7 @@ namespace Planista_2._0
             FancyDecorations = fancyDecorations;
             CakeWriting = cakeWriting;
         }
-
+        public string CakeWriting { get; set; }
         private int ActualLengt
         {
             get
@@ -58,19 +50,12 @@ namespace Planista_2._0
                     return false;
             }
         }
-        private decimal CalculateCostOfDecorations()
-        {
-            decimal costOfDecorations;
-            if (FancyDecorations)
-                costOfDecorations = (NumberOfPeople * 15.00M) + 50M;
-            else costOfDecorations = (NumberOfPeople * 7.50M) + 30M;
-            return costOfDecorations;
-        }
-        public decimal Cost
+       
+      override  public decimal Cost
         {
             get
             {
-                decimal totalCost = CalculateCostOfDecorations();
+                decimal totalCost = base.Cost;
                 totalCost += CostOfFoodPerPerson * NumberOfPeople;
                 decimal cakeCost;
                 if (CakeSize() == 20)
