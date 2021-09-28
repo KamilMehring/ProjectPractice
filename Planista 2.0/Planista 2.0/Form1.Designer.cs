@@ -102,7 +102,7 @@ namespace Planista_2._0
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 88);
+            this.label2.Location = new System.Drawing.Point(6, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 6;
@@ -152,7 +152,7 @@ namespace Planista_2._0
             this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.costLabel.Location = new System.Drawing.Point(50, 88);
             this.costLabel.Name = "costLabel";
-            this.costLabel.Size = new System.Drawing.Size(71, 19);
+            this.costLabel.Size = new System.Drawing.Size(67, 29);
             this.costLabel.TabIndex = 7;
             this.costLabel.Click += new System.EventHandler(this.costLabel_Click);
             // 

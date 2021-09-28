@@ -102,6 +102,7 @@ namespace Planista
             this.costLabel.Name = "costLabel";
             this.costLabel.Size = new System.Drawing.Size(71, 19);
             this.costLabel.TabIndex = 4;
+            this.costLabel.Click += new System.EventHandler(this.costLabel_Click);
             // 
             // label2
             // 

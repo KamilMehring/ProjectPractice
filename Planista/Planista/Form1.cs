@@ -45,5 +45,10 @@ namespace Planista
             decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
             costLabel.Text = Cost.ToString("c");
         }
+
+        private void costLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
