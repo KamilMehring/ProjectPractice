@@ -30,11 +30,11 @@ namespace Hive_management_system
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.workerBeeJob = new System.Windows.Forms.ComboBox();
+            this.assignJob = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.shifts = new System.Windows.Forms.NumericUpDown();
-            this.assignJob = new System.Windows.Forms.Button();
+            this.workerBeeJob = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.nextShift = new System.Windows.Forms.Button();
             this.report = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -55,31 +55,15 @@ namespace Hive_management_system
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Przydział prac robotnicom";
             // 
-            // label1
+            // assignJob
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Zadanie robotnicy";
-            // 
-            // workerBeeJob
-            // 
-            this.workerBeeJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.workerBeeJob.FormattingEnabled = true;
-            this.workerBeeJob.Items.AddRange(new object[] {
-            "Zbieranie nektaru",
-            "Wytwarzanie miodu",
-            "Pielęnacja jaj",
-            "Naucznie pszczółek",
-            "Utrzymywanie ula",
-            "Patrol z żądzłami"});
-            this.workerBeeJob.Location = new System.Drawing.Point(6, 42);
-            this.workerBeeJob.Name = "workerBeeJob";
-            this.workerBeeJob.Size = new System.Drawing.Size(121, 21);
-            this.workerBeeJob.TabIndex = 1;
-            this.workerBeeJob.SelectedIndexChanged += new System.EventHandler(this.workerBeeJob_SelectedIndexChanged);
+            this.assignJob.Location = new System.Drawing.Point(6, 69);
+            this.assignJob.Name = "assignJob";
+            this.assignJob.Size = new System.Drawing.Size(247, 23);
+            this.assignJob.TabIndex = 3;
+            this.assignJob.Text = "Przypisz tę pracę pszczole";
+            this.assignJob.UseVisualStyleBackColor = true;
+            this.assignJob.Click += new System.EventHandler(this.assignJob_Click_1);
             // 
             // label2
             // 
@@ -98,15 +82,31 @@ namespace Hive_management_system
             this.shifts.TabIndex = 2;
             this.shifts.ValueChanged += new System.EventHandler(this.shifts_ValueChanged);
             // 
-            // assignJob
+            // workerBeeJob
             // 
-            this.assignJob.Location = new System.Drawing.Point(6, 69);
-            this.assignJob.Name = "assignJob";
-            this.assignJob.Size = new System.Drawing.Size(247, 23);
-            this.assignJob.TabIndex = 3;
-            this.assignJob.Text = "Przypisz tę pracę pszczole";
-            this.assignJob.UseVisualStyleBackColor = true;
-            this.assignJob.Click += new System.EventHandler(this.assignJob_Click_1);
+            this.workerBeeJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workerBeeJob.FormattingEnabled = true;
+            this.workerBeeJob.Items.AddRange(new object[] {
+            "Zbieranie nektaru",
+            "Wytwarzanie miodu",
+            "Pielęnacja jaj",
+            "Naucznie pszczółek",
+            "Utrzymywanie ula",
+            "Patrol z żądzłami"});
+            this.workerBeeJob.Location = new System.Drawing.Point(6, 42);
+            this.workerBeeJob.Name = "workerBeeJob";
+            this.workerBeeJob.Size = new System.Drawing.Size(121, 21);
+            this.workerBeeJob.TabIndex = 1;
+            this.workerBeeJob.SelectedIndexChanged += new System.EventHandler(this.workerBeeJob_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Zadanie robotnicy";
             // 
             // nextShift
             // 
@@ -124,7 +124,7 @@ namespace Hive_management_system
             this.report.Location = new System.Drawing.Point(12, 123);
             this.report.Multiline = true;
             this.report.Name = "report";
-            this.report.Size = new System.Drawing.Size(458, 204);
+            this.report.Size = new System.Drawing.Size(457, 204);
             this.report.TabIndex = 5;
             this.report.TextChanged += new System.EventHandler(this.report_TextChanged);
             // 
@@ -132,7 +132,7 @@ namespace Hive_management_system
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 339);
+            this.ClientSize = new System.Drawing.Size(481, 337);
             this.Controls.Add(this.report);
             this.Controls.Add(this.nextShift);
             this.Controls.Add(this.groupBox1);

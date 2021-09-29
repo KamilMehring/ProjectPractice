@@ -8,11 +8,12 @@ namespace Hive_management_system
 {
     class Worker : Bee
     {
-        public Worker(string[] jobsICanDo , double weightMg) 
+        public Worker(string[] jobsICanDo, double weightMg)
             : base(weightMg)
         {
             this.jobsICanDo = jobsICanDo;
         }
+
         const double honeyUnitsPerShiftWorked = .65;
 
         public override double HoneyConsumptionRate()
@@ -21,6 +22,7 @@ namespace Hive_management_system
             consumption += shiftsWorked * honeyUnitsPerShiftWorked;
             return consumption;
         }
+
         public int ShiftsLeft
         {
             get
@@ -28,6 +30,7 @@ namespace Hive_management_system
                 return shiftsToWork - shiftsWorked;
             }
         }
+
         private string currentJob = "";
         public string CurrentJob
         {
@@ -36,32 +39,34 @@ namespace Hive_management_system
                 return currentJob;
             }
         }
+
         private string[] jobsICanDo;
         private int shiftsToWork;
         private int shiftsWorked;
-        
-        public bool DoThisJob(string job , int numberOfShifts)
+
+        public bool DoThisJob(string job, int numberOfShifts)
         {
             if (!String.IsNullOrEmpty(currentJob))
                 return false;
             for (int i = 0; i < jobsICanDo.Length; i++)
-                if(jobsICanDo[i] == job)
+                if (jobsICanDo[i] == job)
                 {
                     currentJob = job;
                     this.shiftsToWork = numberOfShifts;
                     shiftsWorked = 0;
-                        return true;
+                    return true;
                 }
             return false;
         }
+
         public bool DidYouFinish()
         {
             if (String.IsNullOrEmpty(currentJob))
                 return false;
-            shiftsToWork++;
+            shiftsWorked++;
             if (shiftsWorked > shiftsToWork)
             {
-                shiftsToWork = 0;
+                shiftsWorked = 0;
                 shiftsToWork = 0;
                 currentJob = "";
                 return true;
@@ -70,5 +75,5 @@ namespace Hive_management_system
                 return false;
         }
     }
-
 }
+

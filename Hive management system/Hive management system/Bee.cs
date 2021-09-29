@@ -16,6 +16,7 @@ namespace Hive_management_system
         {
             WeightMg = weightMg;
         }
+
         virtual public double HoneyConsumptionRate()
         {
             return WeightMg * HoneyUnitsConsumedPerMg;

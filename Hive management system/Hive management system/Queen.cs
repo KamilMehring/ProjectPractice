@@ -8,11 +8,12 @@ namespace Hive_management_system
 {
     class Queen : Bee
     {
-        public Queen(Worker[] workers , double weightMg) 
+        public Queen(Worker[] workers, double weightMg)
             : base(weightMg)
         {
             this.workers = workers;
         }
+
         private Worker[] workers;
         private int shiftNumber = 0;
 
@@ -23,32 +24,33 @@ namespace Hive_management_system
                     return true;
             return false;
         }
+
         public string WorkTheNextShift()
         {
-            double honeyConsumend = HoneyConsumptionRate();
+            double honeyConsumed = HoneyConsumptionRate();
 
             shiftNumber++;
             string report = "Raport zmiany numer " + shiftNumber + "\r\n";
             for (int i = 0; i < workers.Length; i++)
             {
-                honeyConsumend += workers[i].HoneyConsumptionRate();
+                honeyConsumed += workers[i].HoneyConsumptionRate();
 
                 if (workers[i].DidYouFinish())
-                    report += "Robotnica numer " + (i + 1) + "zakończyła swoje zadanie\r\n";
+                    report += "Robotnica numer " + (i + 1) + " zakończyła swoje zadanie\r\n";
                 if (String.IsNullOrEmpty(workers[i].CurrentJob))
                     report += "Robotnica numer " + (i + 1) + " nie pracuje\r\n";
                 else
                     if (workers[i].ShiftsLeft > 0)
-                    report += "Robotnica numer " + (i + 1) + " robi '" + workers[i].CurrentJob 
-                        + "' jeszcze raz " + workers[i].ShiftsLeft + " zmiany\r\n";
+                    report += "Robotnica numer " + (i + 1) + " robi '" + workers[i].CurrentJob
+                        + "' jeszcze przez " + workers[i].ShiftsLeft + " zmiany\r\n";
                 else
-                    report += "Robonica numer " + (i + 1) + " zakończony '"
+                    report += "Robotnica numer " + (i + 1) + " zakończy '"
                         + workers[i].CurrentJob + "' po tej zmianie\r\n";
             }
-            report += "Całkowite spożycie miodu: " + honeyConsumend + "jednostek\r\n";
+
+            report += "Całkowite spożycie miodu: " + honeyConsumed + " jednostek\r\n";
 
             return report;
         }
     }
-    
 }

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ratuj_Ludzi3", "Ratuj_Ludzi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hive management system", "Hive management system\Hive management system\Hive management system.csproj", "{B6740164-76EE-4D49-ABB4-DBB4E2996C3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TallGuy", "TallGuy\TallGuy.csproj", "{9BEE2B3A-022F-43FB-AE93-B6A0FCE40580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peekaboo", "Peekaboo\Peekaboo.csproj", "{E1645BEB-9878-42E7-8D3B-23141D193896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B6740164-76EE-4D49-ABB4-DBB4E2996C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6740164-76EE-4D49-ABB4-DBB4E2996C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6740164-76EE-4D49-ABB4-DBB4E2996C3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BEE2B3A-022F-43FB-AE93-B6A0FCE40580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEE2B3A-022F-43FB-AE93-B6A0FCE40580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEE2B3A-022F-43FB-AE93-B6A0FCE40580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEE2B3A-022F-43FB-AE93-B6A0FCE40580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1645BEB-9878-42E7-8D3B-23141D193896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1645BEB-9878-42E7-8D3B-23141D193896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1645BEB-9878-42E7-8D3B-23141D193896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1645BEB-9878-42E7-8D3B-23141D193896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
