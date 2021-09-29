@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Peekaboo
 {
-    class OutsideWithDoor : Outside, IHasExteriorDoor
+    class OutsideWithDoor : Outside ,  IHasExteriorDoor
     {
         public OutsideWithDoor(string name, bool hot, string doorDescription)
             : base(name, hot)
         {
             this.DoorDescription = doorDescription;
         }
-
         public string DoorDescription { get; private set; }
 
         public Location DoorLocation { get; set; }
@@ -22,7 +21,7 @@ namespace Peekaboo
         {
             get
             {
-                return base.Description + " Widzisz tutaj " + DoorDescription + ".";
+                return base.Description + " Widzisz teraz " + DoorDescription + ".";
             }
         }
     }

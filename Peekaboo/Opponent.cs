@@ -22,8 +22,7 @@ namespace Peekaboo
             {
                 if (myLocation is IHasExteriorDoor)
                 {
-                    IHasExteriorDoor locationWithDoor =
-                                    myLocation as IHasExteriorDoor;
+                    IHasExteriorDoor locationWithDoor = myLocation as IHasExteriorDoor;
                     if (random.Next(2) == 1)
                         myLocation = locationWithDoor.DoorLocation;
                 }

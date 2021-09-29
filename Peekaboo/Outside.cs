@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Peekaboo
 {
-    class Outside : Location
+    class Outside : Location 
     {
         private bool hot;
 
         public Outside(string name, bool hot)
-            : base(name)
+            : base (name)
         {
             this.hot = hot;
         }
@@ -20,12 +20,12 @@ namespace Peekaboo
         {
             get
             {
-                string newDescription = base.Description;
+                string NewDescription = base.Description;
                 if (hot)
-                    newDescription += " Jest bardzo gorąco.";
-                return newDescription;
+                    NewDescription += " Tutaj jest bardzo gorąco. ";
+                return NewDescription;
             }
         }
     }
-
+    
 }

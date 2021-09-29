@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace Peekaboo
 {
-    class OutsideWithHidingPlace : Outside, IHidingPlace
+    class OutsideWithHidingPlace :  Outside, IHidingPlace 
     {
         public OutsideWithHidingPlace(string name, bool hot, string hidingPlaceName)
             : base(name, hot)
         {
             HidingPlaceName = hidingPlaceName;
         }
-
         public string HidingPlaceName { get; private set; }
 
         public override string Description
         {
             get
             {
-                return base.Description + " Ktoś może ukrywać się " + HidingPlaceName + ".";
+                return base.Description + " Ktoś może ukrywać się" + HidingPlaceName + ".";
             }
         }
     }

@@ -34,20 +34,19 @@ namespace Peekaboo
 
         public Form1()
         {
-            InitializeComponent();
-            CreateObjects();
-            opponent = new Opponent(frontYard);
-            ResetGame(false);
+          InitializeComponent();
+          CreateObjects();
+          opponent = new Opponent(frontYard);
+          ResetGame(false);
         }
 
         private void MoveToANewLocation(Location newLocation)
         {
             Moves++;
             currentLocation = newLocation;
-            RedrawForm();
+            RedrawFrom();
         }
-
-        private void RedrawForm()
+        private void RedrawFrom()
         {
             exits.Items.Clear();
             for (int i = 0; i < currentLocation.Exits.Length; i++)
@@ -57,7 +56,7 @@ namespace Peekaboo
             if (currentLocation is IHidingPlace)
             {
                 IHidingPlace hidingPlace = currentLocation as IHidingPlace;
-                check.Text = "Sprawdź " + hidingPlace.HidingPlaceName;
+                check.Text = "Srawdź" + hidingPlace.HidingPlaceName;
                 check.Visible = true;
             }
             else
@@ -66,27 +65,25 @@ namespace Peekaboo
                 goThroughTheDoor.Visible = true;
             else
                 goThroughTheDoor.Visible = false;
+
         }
+
 
         private void CreateObjects()
         {
             livingRoom = new RoomWithDoor("Salon", "antyczny dywan",
-                "w szafie ściennej", "dębowe drzwi z mosiężną klamką");
+                "w  szafce ściennej", "dębowe drzwi z mosiężną klamką");
             diningRoom = new RoomWithHidingPlace("Jadalnia", "kryształowy żyrandol",
-                "w wysokiej szafie");
+                "W wysokiej szafie");
             kitchen = new RoomWithDoor("Kuchnia", "nierdzewne stalowe sztućce",
-                "w szafce", "rozsuwane drzwi");
+                "W szafce", "rozsuwane drzwi");
             stairs = new Room("Schody", "drewniana poręcz");
-            hallway = new RoomWithHidingPlace("Korytarz na górze", "Obrazek z psem",
-                "w szafie ściennej");
-            bathroom = new RoomWithHidingPlace("Łazienka", "umywalka i toaleta",
-                "pod prysznicem");
-            masterBedroom = new RoomWithHidingPlace("Duża sypialnia", "duże łóżko",
-                "pod łóżkiem");
-            secondBedroom = new RoomWithHidingPlace("Druga sypialnia", "małe łóżko",
-                "pod łóżkiem");
+            hallway = new RoomWithHidingPlace("Korytarz na górze", "Obrazek z psem", "w szafie ściennej");
+            bathroom = new RoomWithHidingPlace("Łazienka", "umywalka i toaleta", "pod prysznicem");
+            masterBedroom = new RoomWithHidingPlace("Duża sypialnia", "duże łóżko", "pod łózkiem");
+            secondBedroom = new RoomWithHidingPlace("Druga sypialnia", "małe łózko", "pod łózkiem");
 
-            frontYard = new OutsideWithDoor("Podwórko przed domem", false, "ciężkie dębowe drzwi");
+            frontYard = new OutsideWithDoor("Podwórko przed domem", false, "ciężkie ebowe drzwi");
             backYard = new OutsideWithDoor("Podwórko za domem", true, "rozsuwane drzwi");
             garden = new OutsideWithHidingPlace("Ogród", false, "w szopie");
             driveway = new OutsideWithHidingPlace("Droga dojazdowa", true, "w garażu");
@@ -110,6 +107,23 @@ namespace Peekaboo
             kitchen.DoorLocation = backYard;
             backYard.DoorLocation = kitchen;
         }
+        private void ResetGame(bool displayMessage)
+        {
+            if (displayMessage)
+            {
+                MessageBox.Show(" Odnalazłeś mnie w " + Moves + " ruchach!");
+                IHidingPlace foundLocaion = currentLocation as IHidingPlace;
+                description.Text = "Znalazłeś przeciwnika w "
+                  + Moves + " ruchach! Ukrywał się " + foundLocaion.HidingPlaceName + ".";
+            }
+            Moves = 0;
+            hide.Visible = true;
+            goHere.Visible = false;
+            check.Visible = false;
+            goThroughTheDoor.Visible = false;
+            exits.Visible = false;
+        }
+       
 
         private void goHere_Click(object sender, EventArgs e)
         {
@@ -122,30 +136,13 @@ namespace Peekaboo
             MoveToANewLocation(hasDoor.DoorLocation);
         }
 
-        private void ResetGame(bool displayMessage)
-        {
-            if (displayMessage)
-            {
-                MessageBox.Show("Odnalazłeś mnie w " + Moves + " ruchach!");
-                IHidingPlace foundLocation = currentLocation as IHidingPlace;
-                description.Text = "Znalazłeś przeciwnika w " + Moves
-                      + " ruchach! Ukrywał się " + foundLocation.HidingPlaceName + ".";
-            }
-            Moves = 0;
-            hide.Visible = true;
-            goHere.Visible = false;
-            check.Visible = false;
-            goThroughTheDoor.Visible = false;
-            exits.Visible = false;
-        }
-
         private void check_Click(object sender, EventArgs e)
         {
             Moves++;
             if (opponent.Check(currentLocation))
                 ResetGame(true);
             else
-                RedrawForm();
+                RedrawFrom();
         }
 
         private void hide_Click(object sender, EventArgs e)
@@ -159,7 +156,6 @@ namespace Peekaboo
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(200);
             }
-
             description.Text = "Gotowy czy nie - nadchodzę!";
             Application.DoEvents();
             System.Threading.Thread.Sleep(500);
@@ -167,8 +163,8 @@ namespace Peekaboo
             goHere.Visible = true;
             exits.Visible = true;
             MoveToANewLocation(livingRoom);
-        }
 
-       
+
+        }
     }
 }

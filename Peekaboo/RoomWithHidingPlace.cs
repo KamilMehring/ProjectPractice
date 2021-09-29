@@ -13,15 +13,14 @@ namespace Peekaboo
         {
             HidingPlaceName = hidingPlaceName;
         }
-
         public string HidingPlaceName { get; private set; }
         public override string Description
         {
             get
             {
-                return base.Description + " Ktoś może ukrywać się " + HidingPlaceName + ".";
+                return base.Description + " Ktoś może ukrywać " + HidingPlaceName + ".";
             }
         }
     }
-
+    
 }
