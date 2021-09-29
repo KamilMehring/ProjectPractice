@@ -72,11 +72,11 @@ namespace Peekaboo
         private void CreateObjects()
         {
             livingRoom = new RoomWithDoor("Salon", "antyczny dywan",
-                "w  szafce ściennej", "dębowe drzwi z mosiężną klamką");
+                " w  szafce ściennej ", " dębowe drzwi z mosiężną klamką ");
             diningRoom = new RoomWithHidingPlace("Jadalnia", "kryształowy żyrandol",
-                "W wysokiej szafie");
+                " w wysokiej szafie ");
             kitchen = new RoomWithDoor("Kuchnia", "nierdzewne stalowe sztućce",
-                "W szafce", "rozsuwane drzwi");
+                " w szafce", "rozsuwane drzwi");
             stairs = new Room("Schody", "drewniana poręcz");
             hallway = new RoomWithHidingPlace("Korytarz na górze", "Obrazek z psem", "w szafie ściennej");
             bathroom = new RoomWithHidingPlace("Łazienka", "umywalka i toaleta", "pod prysznicem");
@@ -158,7 +158,7 @@ namespace Peekaboo
             }
             description.Text = "Gotowy czy nie - nadchodzę!";
             Application.DoEvents();
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(800);
 
             goHere.Visible = true;
             exits.Visible = true;
