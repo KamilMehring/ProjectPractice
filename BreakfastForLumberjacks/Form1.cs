@@ -74,5 +74,20 @@ namespace BreakfastForLumberjacks
                              (int)howMany.Value);
             RedrawList();
         }
+
+        private void nextInLine_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void line_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

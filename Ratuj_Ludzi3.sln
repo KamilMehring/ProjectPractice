@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoToFishing", "GoToFishing\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakfastForLumberjacks", "BreakfastForLumberjacks\BreakfastForLumberjacks.csproj", "{9A7A7D9F-EBB3-4BC4-81F0-F546EFC57811}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListOfWorkers", "ListOfWorkers\ListOfWorkers.csproj", "{B8477BC7-10D9-4AEF-830E-B4878A885007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{9A7A7D9F-EBB3-4BC4-81F0-F546EFC57811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A7A7D9F-EBB3-4BC4-81F0-F546EFC57811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A7A7D9F-EBB3-4BC4-81F0-F546EFC57811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8477BC7-10D9-4AEF-830E-B4878A885007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8477BC7-10D9-4AEF-830E-B4878A885007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8477BC7-10D9-4AEF-830E-B4878A885007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8477BC7-10D9-4AEF-830E-B4878A885007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

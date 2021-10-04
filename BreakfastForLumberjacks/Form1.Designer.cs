@@ -62,6 +62,7 @@ namespace BreakfastForLumberjacks
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(114, 20);
             this.name.TabIndex = 2;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // addLumberjack
             // 
@@ -89,6 +90,7 @@ namespace BreakfastForLumberjacks
             this.line.Name = "line";
             this.line.Size = new System.Drawing.Size(105, 264);
             this.line.TabIndex = 5;
+            this.line.SelectedIndexChanged += new System.EventHandler(this.line_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -114,6 +116,7 @@ namespace BreakfastForLumberjacks
             this.nextInLine.Name = "nextInLine";
             this.nextInLine.Size = new System.Drawing.Size(122, 45);
             this.nextInLine.TabIndex = 7;
+            this.nextInLine.Click += new System.EventHandler(this.nextInLine_Click);
             // 
             // nextLumberjack
             // 
