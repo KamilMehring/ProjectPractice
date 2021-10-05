@@ -42,7 +42,7 @@ namespace ListOfWorkers
             this.busniessPhone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.DateEmp = new System.Windows.Forms.TextBox();
+            this.dateEmp = new System.Windows.Forms.TextBox();
             this.jobTitle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,13 +54,30 @@ namespace ListOfWorkers
             this.id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.line = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.generate = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.search);
+            this.groupBox1.Controls.Add(this.textBoxSearch);
+            this.groupBox1.Controls.Add(this.generate);
             this.groupBox1.Controls.Add(this.addWorker);
             this.groupBox1.Controls.Add(this.delateWorker);
             this.groupBox1.Controls.Add(this.saveWorker);
@@ -73,7 +90,7 @@ namespace ListOfWorkers
             this.groupBox1.Controls.Add(this.busniessPhone);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.DateEmp);
+            this.groupBox1.Controls.Add(this.dateEmp);
             this.groupBox1.Controls.Add(this.jobTitle);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -90,11 +107,12 @@ namespace ListOfWorkers
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ListOfWorkers";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // addWorker
             // 
             this.addWorker.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.addWorker.Location = new System.Drawing.Point(443, 14);
+            this.addWorker.Location = new System.Drawing.Point(524, 70);
             this.addWorker.Name = "addWorker";
             this.addWorker.Size = new System.Drawing.Size(75, 50);
             this.addWorker.TabIndex = 0;
@@ -105,22 +123,24 @@ namespace ListOfWorkers
             // delateWorker
             // 
             this.delateWorker.ForeColor = System.Drawing.Color.DarkRed;
-            this.delateWorker.Location = new System.Drawing.Point(443, 126);
+            this.delateWorker.Location = new System.Drawing.Point(741, 70);
             this.delateWorker.Name = "delateWorker";
             this.delateWorker.Size = new System.Drawing.Size(75, 50);
             this.delateWorker.TabIndex = 1;
             this.delateWorker.Text = "Delate";
             this.delateWorker.UseVisualStyleBackColor = true;
+            this.delateWorker.Click += new System.EventHandler(this.delateWorker_Click);
             // 
             // saveWorker
             // 
             this.saveWorker.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.saveWorker.Location = new System.Drawing.Point(443, 70);
+            this.saveWorker.Location = new System.Drawing.Point(632, 70);
             this.saveWorker.Name = "saveWorker";
             this.saveWorker.Size = new System.Drawing.Size(75, 50);
             this.saveWorker.TabIndex = 2;
-            this.saveWorker.Text = "Save";
+            this.saveWorker.Text = "Update";
             this.saveWorker.UseVisualStyleBackColor = true;
+            this.saveWorker.Click += new System.EventHandler(this.saveWorker_Click);
             // 
             // label10
             // 
@@ -166,6 +186,7 @@ namespace ListOfWorkers
             // phone
             // 
             this.phone.Location = new System.Drawing.Point(273, 82);
+            this.phone.MaxLength = 9;
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(100, 20);
             this.phone.TabIndex = 14;
@@ -173,6 +194,7 @@ namespace ListOfWorkers
             // busniessPhone
             // 
             this.busniessPhone.Location = new System.Drawing.Point(273, 57);
+            this.busniessPhone.MaxLength = 9;
             this.busniessPhone.Name = "busniessPhone";
             this.busniessPhone.Size = new System.Drawing.Size(100, 20);
             this.busniessPhone.TabIndex = 13;
@@ -195,12 +217,13 @@ namespace ListOfWorkers
             this.label6.TabIndex = 11;
             this.label6.Text = "Date of Employment";
             // 
-            // DateEmp
+            // dateEmp
             // 
-            this.DateEmp.Location = new System.Drawing.Point(273, 30);
-            this.DateEmp.Name = "DateEmp";
-            this.DateEmp.Size = new System.Drawing.Size(100, 20);
-            this.DateEmp.TabIndex = 10;
+            this.dateEmp.Location = new System.Drawing.Point(273, 30);
+            this.dateEmp.MaxLength = 10;
+            this.dateEmp.Name = "dateEmp";
+            this.dateEmp.Size = new System.Drawing.Size(100, 20);
+            this.dateEmp.TabIndex = 10;
             // 
             // jobTitle
             // 
@@ -230,6 +253,7 @@ namespace ListOfWorkers
             // pesel
             // 
             this.pesel.Location = new System.Drawing.Point(59, 111);
+            this.pesel.MaxLength = 11;
             this.pesel.Name = "pesel";
             this.pesel.Size = new System.Drawing.Size(100, 20);
             this.pesel.TabIndex = 6;
@@ -284,7 +308,7 @@ namespace ListOfWorkers
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.line);
+            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 220);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(928, 408);
@@ -292,13 +316,109 @@ namespace ListOfWorkers
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SQLite";
             // 
-            // line
+            // dataGridView1
             // 
-            this.line.FormattingEnabled = true;
-            this.line.Location = new System.Drawing.Point(3, 16);
-            this.line.Name = "line";
-            this.line.Size = new System.Drawing.Size(919, 394);
-            this.line.TabIndex = 0;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Calumn4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(916, 383);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // generate
+            // 
+            this.generate.Location = new System.Drawing.Point(524, 134);
+            this.generate.Name = "generate";
+            this.generate.Size = new System.Drawing.Size(292, 45);
+            this.generate.TabIndex = 20;
+            this.generate.Text = "Generate Salary";
+            this.generate.UseVisualStyleBackColor = true;
+            this.generate.Click += new System.EventHandler(this.generate_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Surname";
+            this.Column3.Name = "Column3";
+            // 
+            // Calumn4
+            // 
+            this.Calumn4.HeaderText = "PESEL";
+            this.Calumn4.Name = "Calumn4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Job Title";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date Of Employment";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Business Phone";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Phone";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Adress";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Salary";
+            this.Column10.Name = "Column10";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(655, 16);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(145, 30);
+            this.textBoxSearch.TabIndex = 21;
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(524, 19);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(125, 27);
+            this.search.TabIndex = 22;
+            this.search.Text = "Search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // Form1
             // 
@@ -309,9 +429,11 @@ namespace ListOfWorkers
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,7 +453,7 @@ namespace ListOfWorkers
         private System.Windows.Forms.TextBox busniessPhone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox DateEmp;
+        private System.Windows.Forms.TextBox dateEmp;
         private System.Windows.Forms.TextBox jobTitle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -343,7 +465,20 @@ namespace ListOfWorkers
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox line;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button generate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Calumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
 
