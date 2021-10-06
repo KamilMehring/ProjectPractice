@@ -68,17 +68,18 @@ namespace ListOfWorkers
             var con = new SQLiteConnection(cs);
             con.Open();
             var cmd = new SQLiteCommand(con);
-            
-           
+
+
             try
             {
 
-                cmd.CommandText = "INSERT INTO test(name,id) VALUES(@name,@id)";
+                cmd.CommandText = "INSERT INTO test(id,name,surname,pesel,jobTitle,dateEmp,busniessPhone,phone,adress,salary) "
+                    + "VALUES(@Name,@Id,@surname,@pesel,@jobTitle,@dateEmp,@busniessPhone,@phone,@adress,@salary)";
 
                 string ID = id.Text;
                 string Name = name.Text;
-                string Surname = surname.Text;              
-                string PESEL = pesel.Text;                  
+                string Surname = surname.Text;
+                string PESEL = pesel.Text;
                 string JoBTitle = jobTitle.Text;
                 string DataOfEmp = dateEmp.Text;
                 string Bphone = busniessPhone.Text;
@@ -86,8 +87,8 @@ namespace ListOfWorkers
                 string Adress = adress.Text;
                 string Salary = salary.Text;
 
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.Parameters.AddWithValue("@name", Name);
+                cmd.Parameters.AddWithValue("@Id", ID);
+                cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@surname", Surname);
                 cmd.Parameters.AddWithValue("@pesel", PESEL);
                 cmd.Parameters.AddWithValue("@jobTitle", JoBTitle);
@@ -97,11 +98,11 @@ namespace ListOfWorkers
                 cmd.Parameters.AddWithValue("@adress", Adress);
                 cmd.Parameters.AddWithValue("@salary", Salary);
 
-               
+
 
                 dataGridView1.ColumnCount = 10;
-                dataGridView1.Columns[0].Name = "Id";
-                dataGridView1.Columns[1].Name = "Name";
+                dataGridView1.Columns[0].Name = "id";
+                dataGridView1.Columns[1].Name = "name";
                 dataGridView1.Columns[2].Name = "Surname";
                 dataGridView1.Columns[3].Name = "PESEL";
                 dataGridView1.Columns[4].Name = "JobTitle";
@@ -110,10 +111,10 @@ namespace ListOfWorkers
                 dataGridView1.Columns[7].Name = "Phone";
                 dataGridView1.Columns[8].Name = "Adress";
                 dataGridView1.Columns[9].Name = "Salary";
-                
 
-                
-                string[] row = new string[] { ID, Name , Surname , PESEL , JoBTitle , DataOfEmp , Bphone , Phone , Adress , Salary  };
+
+
+                string[] row = new string[] { ID, Name, Surname, PESEL, JoBTitle, DataOfEmp, Bphone, Phone, Adress, Salary };
                 dataGridView1.Rows.Add(row);
 
                 cmd.ExecuteNonQuery();
@@ -182,10 +183,10 @@ namespace ListOfWorkers
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-                Create_db();
-                data_show();
-            
+
+            Create_db();
+            data_show();
+
         }
 
         private void saveWorker_Click(object sender, EventArgs e)
@@ -200,16 +201,16 @@ namespace ListOfWorkers
                 {
                     cmd.CommandText = "UPDATE test Set id=@Id , where name=@Name";
                     cmd.Prepare();
-                    cmd.Parameters.AddWithValue("@Id", id.Text);
-                    cmd.Parameters.AddWithValue("@Name", name.Text); 
-                    cmd.Parameters.AddWithValue("@surname", surname.Text);
-                    cmd.Parameters.AddWithValue("@pesel", pesel.Text);
-                    cmd.Parameters.AddWithValue("@jobTitle", jobTitle.Text);
-                    cmd.Parameters.AddWithValue("@dateEmp", dateEmp.Text);
-                    cmd.Parameters.AddWithValue("@busniessPhone", busniessPhone.Text);
-                    cmd.Parameters.AddWithValue("@phone", phone.Text);
-                    cmd.Parameters.AddWithValue("@adress", adress.Text);
-                    cmd.Parameters.AddWithValue("@salary", salary.Text);
+                    //cmd.Parameters.AddWithValue("@Id", id.Text);
+                    cmd.Parameters.AddWithValue("@Name", name.Text);
+                    //cmd.Parameters.AddWithValue("@surname", surname.Text);
+                    //cmd.Parameters.AddWithValue("@pesel", pesel.Text);
+                    //cmd.Parameters.AddWithValue("@jobTitle", jobTitle.Text);
+                    //cmd.Parameters.AddWithValue("@dateEmp", dateEmp.Text);
+                    //cmd.Parameters.AddWithValue("@busniessPhone", busniessPhone.Text);
+                    //cmd.Parameters.AddWithValue("@phone", phone.Text);
+                    //cmd.Parameters.AddWithValue("@adress", adress.Text);
+                    //cmd.Parameters.AddWithValue("@salary", salary.Text);
 
                     cmd.ExecuteNonQuery();
                     dataGridView1.Rows.Clear();
@@ -218,7 +219,7 @@ namespace ListOfWorkers
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("cannot update data");
+                    MessageBox.Show("cannot update data");
                     return;
                 }
             }
@@ -239,7 +240,24 @@ namespace ListOfWorkers
 
         private void search_Click(object sender, EventArgs e)
         {
-            
+
+
+
+        }
+        void ClearAllText(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                if (c is TextBox)
+                    ((TextBox)c).Clear();
+                else
+                    ClearAllText(c);
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            ClearAllText(this);
         }
     }
 }

@@ -30,6 +30,9 @@ namespace ListOfWorkers
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.search = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.generate = new System.Windows.Forms.Button();
             this.addWorker = new System.Windows.Forms.Button();
             this.delateWorker = new System.Windows.Forms.Button();
             this.saveWorker = new System.Windows.Forms.Button();
@@ -55,7 +58,6 @@ namespace ListOfWorkers
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.generate = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,8 +68,7 @@ namespace ListOfWorkers
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.search = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,6 +76,7 @@ namespace ListOfWorkers
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.clearButton);
             this.groupBox1.Controls.Add(this.search);
             this.groupBox1.Controls.Add(this.textBoxSearch);
             this.groupBox1.Controls.Add(this.generate);
@@ -108,6 +110,34 @@ namespace ListOfWorkers
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ListOfWorkers";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(524, 19);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(125, 27);
+            this.search.TabIndex = 22;
+            this.search.Text = "Search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(655, 16);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(145, 30);
+            this.textBoxSearch.TabIndex = 21;
+            // 
+            // generate
+            // 
+            this.generate.Location = new System.Drawing.Point(524, 134);
+            this.generate.Name = "generate";
+            this.generate.Size = new System.Drawing.Size(292, 45);
+            this.generate.TabIndex = 20;
+            this.generate.Text = "Generate Salary";
+            this.generate.UseVisualStyleBackColor = true;
+            this.generate.Click += new System.EventHandler(this.generate_Click);
             // 
             // addWorker
             // 
@@ -342,16 +372,6 @@ namespace ListOfWorkers
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // generate
-            // 
-            this.generate.Location = new System.Drawing.Point(524, 134);
-            this.generate.Name = "generate";
-            this.generate.Size = new System.Drawing.Size(292, 45);
-            this.generate.TabIndex = 20;
-            this.generate.Text = "Generate Salary";
-            this.generate.UseVisualStyleBackColor = true;
-            this.generate.Click += new System.EventHandler(this.generate_Click);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "ID";
@@ -402,23 +422,15 @@ namespace ListOfWorkers
             this.Column10.HeaderText = "Salary";
             this.Column10.Name = "Column10";
             // 
-            // textBoxSearch
+            // clearButton
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(655, 16);
-            this.textBoxSearch.Multiline = true;
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(145, 30);
-            this.textBoxSearch.TabIndex = 21;
-            // 
-            // search
-            // 
-            this.search.Location = new System.Drawing.Point(524, 19);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(125, 27);
-            this.search.TabIndex = 22;
-            this.search.Text = "Search";
-            this.search.UseVisualStyleBackColor = true;
-            this.search.Click += new System.EventHandler(this.search_Click);
+            this.clearButton.Location = new System.Drawing.Point(408, 70);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 50);
+            this.clearButton.TabIndex = 7;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // Form1
             // 
@@ -479,6 +491,7 @@ namespace ListOfWorkers
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 
