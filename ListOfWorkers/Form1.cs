@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data.SqlClient;
 
+
 namespace ListOfWorkers
 {
 
@@ -36,7 +37,7 @@ namespace ListOfWorkers
                 var con = new SQLiteConnection(cs);
                 con.Open();
 
-                string stm = "SELECT * FROM test";
+                string stm = "SELECT id , name FROM test";
                 var cmd = new SQLiteCommand(stm, con);
                 dr = cmd.ExecuteReader();
 
@@ -58,7 +59,7 @@ namespace ListOfWorkers
                 using (var sqlite = new SQLiteConnection("Data Source=data_table.db"))
                 {
                     sqlite.Open();
-                    string sql = @"create table test(name varchar(20),id varchar(12),surname varchar(20), pesel varchar(12), 
+                    string sql = @"create table test(id unique ,name varchar(20),surname varchar(20), pesel varchar(12), 
         jobTitle varchar(20) , dateEmp varchar(12) , busniessPhone varchar(12) 
         ,phone varchar(12) ,adress varcar(20) , salary varchar(12))";
                     SQLiteCommand command = new SQLiteCommand(sql, sqlite);
@@ -82,7 +83,7 @@ namespace ListOfWorkers
             {
 
                 cmd.CommandText = "INSERT INTO test(id , name , surname , pesel , jobTitle , dateEmp , busniessPhone , phone , adress , salary ) "
-                    + "VALUES( @Name , @Id , @Surname , @Pesel , @JobTitle , @DateEmp , @BusniessPhone , @Phone , @Adress , @Salary )";
+                    + "VALUES(@Id , @Name , @Surname , @Pesel , @JobTitle , @DateEmp , @BusniessPhone , @Phone , @Adress , @Salary )";
 
                 string ID = id.Text;
                 string Name = name.Text;
@@ -135,6 +136,7 @@ namespace ListOfWorkers
             }
 
         }
+       
 
         private void saveWorker_Click(object sender, EventArgs e)
         {
@@ -146,18 +148,21 @@ namespace ListOfWorkers
 
             try
             {
-                cmd.CommandText = "UPDATE test Set name = @Name  where id = @Id";
-                cmd.Prepare();
+                //var cmd = con.CreateCommand();
+                cmd.CommandText = @"UPDATE test Set name = @Name , surname = @Surname , pesel=@Pesel ,
+                 jobTitle = @JobTitle , dateEmp = @DateEmp , busniessPhone = @BusniessPhone
+                 , phone = @Phone , salary = @Salary  where id = @Id";
+                //cmd.Prepare();
                 cmd.Parameters.AddWithValue("@Id", id.Text);
                 cmd.Parameters.AddWithValue("@Name", name.Text);
-                //cmd.Parameters.AddWithValue("@surname", surname.Text);
-                //cmd.Parameters.AddWithValue("@pesel", pesel.Text);
-                //cmd.Parameters.AddWithValue("@jobTitle", jobTitle.Text);
-                //cmd.Parameters.AddWithValue("@dateEmp", dateEmp.Text);
-                //cmd.Parameters.AddWithValue("@busniessPhone", busniessPhone.Text);
-                //cmd.Parameters.AddWithValue("@phone", phone.Text);
-                //cmd.Parameters.AddWithValue("@adress", adress.Text);
-                //cmd.Parameters.AddWithValue("@salary", salary.Text);
+                cmd.Parameters.AddWithValue("@Surname", surname.Text);
+                cmd.Parameters.AddWithValue("@Pesel", pesel.Text);
+                cmd.Parameters.AddWithValue("@JobTitle", jobTitle.Text);
+                cmd.Parameters.AddWithValue("@DateEmp", dateEmp.Text);
+                cmd.Parameters.AddWithValue("@BusniessPhone", busniessPhone.Text);
+                cmd.Parameters.AddWithValue("@Phone", phone.Text);
+                cmd.Parameters.AddWithValue("@Adress", adress.Text);
+                cmd.Parameters.AddWithValue("@Salary", salary.Text);
 
                 cmd.ExecuteNonQuery();
                 dataGridView1.Rows.Clear();
@@ -177,11 +182,14 @@ namespace ListOfWorkers
             con.Open();
 
             //var cmd = new SQLiteCommand(con);
+            
 
             try
             {
-                var cmd = con.CreateCommand(); cmd.CommandText = "DELETE FROM test where id =@Id";
+                var cmd = con.CreateCommand();
+                cmd.CommandText = "DELETE FROM test where id =@Id";
                 //cmd.Prepare();
+         
                 cmd.Parameters.AddWithValue("@Id", id.Text);
                 cmd.Parameters.AddWithValue("@Name", name.Text);
                 cmd.Parameters.AddWithValue("@Surname", surname.Text);
@@ -247,10 +255,42 @@ namespace ListOfWorkers
 
         private void search_Click(object sender, EventArgs e)
         {
+            var con = new SQLiteConnection(cs);
+            con.Open();
+
+            //var cmd = new SQLiteCommand(con);
 
 
+            try
+            {
+                var cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT id FROM test  ";
+                //cmd.Prepare();
 
+                cmd.Parameters.AddWithValue("@Id", id.Text);
+                cmd.Parameters.AddWithValue("@Name", name.Text);
+                cmd.Parameters.AddWithValue("@Surname", surname.Text);
+                cmd.Parameters.AddWithValue("@Pesel", pesel.Text);
+                cmd.Parameters.AddWithValue("@JobTitle", jobTitle.Text);
+                cmd.Parameters.AddWithValue("@DateEmp", dateEmp.Text);
+                cmd.Parameters.AddWithValue("@BusniessPhone", busniessPhone.Text);
+                cmd.Parameters.AddWithValue("@Phone", phone.Text);
+                cmd.Parameters.AddWithValue("@Adress", adress.Text);
+                cmd.Parameters.AddWithValue("@Salary", salary.Text);
+
+                cmd.ExecuteNonQuery();
+                dataGridView1.Rows.Clear();
+                data_show();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("cannot search data");
+                return;
+            }
         }
+
+
+    
         void ClearAllText(Control con)
         {
             foreach (Control c in con.Controls)
