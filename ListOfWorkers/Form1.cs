@@ -11,6 +11,7 @@ using System.Data.SQLite;
 using System.Data.SqlClient;
 
 
+
 namespace ListOfWorkers
 {
 
@@ -30,24 +31,33 @@ namespace ListOfWorkers
 
         }
         //show data in table
-        private void data_show()
+        private void data_show(SQLiteDataReader kl = null)
         {
+            //if (kl == null)
+            //    kl = dr;
             try
             {
-                var con = new SQLiteConnection(cs);
-                con.Open();
-
-                string stm = "SELECT id , name FROM test";
-                var cmd = new SQLiteCommand(stm, con);
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
+                if (kl == null)
                 {
-                    dataGridView1.Rows.Insert(0, dr.GetString(0), dr.GetString(1));
-                }
-            } catch
-            {
+                    var con = new SQLiteConnection(cs);
 
+                    con.Open();
+
+                    string stm = "SELECT id , name , surname , pesel , jobTitle , dateEmp, busniessPhone, phone ,adress , salary  FROM test";
+                    var cmd = new SQLiteCommand(stm, con);
+                    kl = cmd.ExecuteReader();
+                }
+                dr = kl;
+
+                while (kl.Read())
+                {
+                    dataGridView1.Rows.Insert(0, kl.GetString(0), kl.GetString(1), kl.GetString(2), kl.GetString(3)
+                        , kl.GetString(4), kl.GetString(5), kl.GetString(6), kl.GetString(7), kl.GetString(8), kl.GetString(9));
+                }
+            }
+            catch
+            {
+                Console.WriteLine();
             }
         }
         //create database and table
@@ -59,9 +69,9 @@ namespace ListOfWorkers
                 using (var sqlite = new SQLiteConnection("Data Source=data_table.db"))
                 {
                     sqlite.Open();
-                    string sql = @"create table test(id unique ,name varchar(20),surname varchar(20), pesel varchar(12), 
-        jobTitle varchar(20) , dateEmp varchar(12) , busniessPhone varchar(12) 
-        ,phone varchar(12) ,adress varcar(20) , salary varchar(12))";
+                    string sql = @"create table test(id integer primay key AUTOINCREMENT,
+                                name ,surname , pesel ,   jobTitle 
+                             , dateEmp  , busniessPhone ,phone  ,adress  , salary )";
                     SQLiteCommand command = new SQLiteCommand(sql, sqlite);
                     command.ExecuteNonQuery();
                 }
@@ -83,7 +93,7 @@ namespace ListOfWorkers
             {
 
                 cmd.CommandText = "INSERT INTO test(id , name , surname , pesel , jobTitle , dateEmp , busniessPhone , phone , adress , salary ) "
-                    + "VALUES(@Id , @Name , @Surname , @Pesel , @JobTitle , @DateEmp , @BusniessPhone , @Phone , @Adress , @Salary )";
+                    + "VALUES(@Id , @Name , @Surname , @Pesel , @JobTitle , @DateEmp , @BusniessPhone , @Phone , @Adress , @Salary  )";
 
                 string ID = id.Text;
                 string Name = name.Text;
@@ -96,6 +106,9 @@ namespace ListOfWorkers
                 string Adress = adress.Text;
                 string Salary = salary.Text;
 
+
+
+
                 cmd.Parameters.AddWithValue("@Id", ID);
                 cmd.Parameters.AddWithValue("@Name", Name);
                 cmd.Parameters.AddWithValue("@Surname", Surname);
@@ -106,6 +119,8 @@ namespace ListOfWorkers
                 cmd.Parameters.AddWithValue("@Phone", Phone);
                 cmd.Parameters.AddWithValue("@Adress", Adress);
                 cmd.Parameters.AddWithValue("@Salary", Salary);
+
+
 
 
 
@@ -136,7 +151,7 @@ namespace ListOfWorkers
             }
 
         }
-       
+
 
         private void saveWorker_Click(object sender, EventArgs e)
         {
@@ -149,10 +164,10 @@ namespace ListOfWorkers
             try
             {
                 //var cmd = con.CreateCommand();
-                cmd.CommandText = @"UPDATE test Set name = @Name , surname = @Surname , pesel=@Pesel ,
+                cmd.CommandText = @"UPDATE test SET name = @Name ,surname = @Surname , pesel=@Pesel ,
                  jobTitle = @JobTitle , dateEmp = @DateEmp , busniessPhone = @BusniessPhone
                  , phone = @Phone , salary = @Salary  where id = @Id";
-                //cmd.Prepare();
+                cmd.Prepare();
                 cmd.Parameters.AddWithValue("@Id", id.Text);
                 cmd.Parameters.AddWithValue("@Name", name.Text);
                 cmd.Parameters.AddWithValue("@Surname", surname.Text);
@@ -182,14 +197,14 @@ namespace ListOfWorkers
             con.Open();
 
             //var cmd = new SQLiteCommand(con);
-            
+
 
             try
             {
                 var cmd = con.CreateCommand();
                 cmd.CommandText = "DELETE FROM test where id =@Id";
                 //cmd.Prepare();
-         
+
                 cmd.Parameters.AddWithValue("@Id", id.Text);
                 cmd.Parameters.AddWithValue("@Name", name.Text);
                 cmd.Parameters.AddWithValue("@Surname", surname.Text);
@@ -214,22 +229,23 @@ namespace ListOfWorkers
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                {
-                    dataGridView1.CurrentRow.Selected = true;
-                    id.Text = dataGridView1.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
-                    name.Text = dataGridView1.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
-                    surname.Text = dataGridView1.Rows[e.RowIndex].Cells["surname"].FormattedValue.ToString();
-                    pesel.Text = dataGridView1.Rows[e.RowIndex].Cells["pesel"].FormattedValue.ToString();
-                    jobTitle.Text = dataGridView1.Rows[e.RowIndex].Cells["jobTitle"].FormattedValue.ToString();
-                    dateEmp.Text = dataGridView1.Rows[e.RowIndex].Cells["dateEmp"].FormattedValue.ToString();
-                    busniessPhone.Text = dataGridView1.Rows[e.RowIndex].Cells["busniessPhone"].FormattedValue.ToString();
-                    phone.Text = dataGridView1.Rows[e.RowIndex].Cells["phone"].FormattedValue.ToString();
-                    adress.Text = dataGridView1.Rows[e.RowIndex].Cells["adress"].FormattedValue.ToString();
-                    salary.Text = dataGridView1.Rows[e.RowIndex].Cells["salary"].FormattedValue.ToString();
-                }
-            
+
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dataGridView1.CurrentRow.Selected = true;
+                id.Text = dataGridView1.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
+                name.Text = dataGridView1.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
+                surname.Text = dataGridView1.Rows[e.RowIndex].Cells["surname"].FormattedValue.ToString();
+                pesel.Text = dataGridView1.Rows[e.RowIndex].Cells["pesel"].FormattedValue.ToString();
+                jobTitle.Text = dataGridView1.Rows[e.RowIndex].Cells["jobTitle"].FormattedValue.ToString();
+                dateEmp.Text = dataGridView1.Rows[e.RowIndex].Cells["dateEmp"].FormattedValue.ToString();
+                busniessPhone.Text = dataGridView1.Rows[e.RowIndex].Cells["busniessPhone"].FormattedValue.ToString();
+                phone.Text = dataGridView1.Rows[e.RowIndex].Cells["phone"].FormattedValue.ToString();
+                adress.Text = dataGridView1.Rows[e.RowIndex].Cells["adress"].FormattedValue.ToString();
+                salary.Text = dataGridView1.Rows[e.RowIndex].Cells["salary"].FormattedValue.ToString();
+
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -243,7 +259,7 @@ namespace ListOfWorkers
         private void generate_Click(object sender, EventArgs e)
         {
             Random salaryGenerator = new Random();
-            int tal = salaryGenerator.Next(2800, 9000);
+            int tal = salaryGenerator.Next(2800, 10000);
             salary.Text = tal.ToString() + "zl";
 
         }
@@ -252,35 +268,47 @@ namespace ListOfWorkers
         {
 
         }
-
-        private void search_Click(object sender, EventArgs e)
+        public void search_Click(object sender, EventArgs e)
         {
             var con = new SQLiteConnection(cs);
             con.Open();
-
-            //var cmd = new SQLiteCommand(con);
-
-
+            string keyword = textBoxSearch.Text;
+            //keyword  = string.Format("@Keyword", textBoxSearch.Text);
+            var sb = new StringBuilder("SELECT name FROM test where ");
             try
             {
+
+
                 var cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT id FROM test  ";
+                //cmd.CommandText = "SELECT name FROM test where id like @Keyword ";
                 //cmd.Prepare();
+                if (!string.IsNullOrWhiteSpace(textBoxSearch.Text))
+                {
+                    //   sb.Append("id like '%@Keyword%' or name like '%@Keyword%'");
+                    sb.Append(" id = @Keyword");
+                    cmd.CommandText = sb.ToString();
+                    cmd.Parameters.AddWithValue("@Keyword", textBoxSearch.Text);
+                }
+                // cmd.Parameters.AddWithValue("@Id", textBoxSearch.Text);
+                // cmd.Parameters.AddWithValue("@Name", name.Text);
 
-                cmd.Parameters.AddWithValue("@Id", id.Text);
-                cmd.Parameters.AddWithValue("@Name", name.Text);
-                cmd.Parameters.AddWithValue("@Surname", surname.Text);
-                cmd.Parameters.AddWithValue("@Pesel", pesel.Text);
-                cmd.Parameters.AddWithValue("@JobTitle", jobTitle.Text);
-                cmd.Parameters.AddWithValue("@DateEmp", dateEmp.Text);
-                cmd.Parameters.AddWithValue("@BusniessPhone", busniessPhone.Text);
-                cmd.Parameters.AddWithValue("@Phone", phone.Text);
-                cmd.Parameters.AddWithValue("@Adress", adress.Text);
-                cmd.Parameters.AddWithValue("@Salary", salary.Text);
+                //cmd.Parameters.AddWithValue("@Surname", surname.Text);
+                //cmd.Parameters.AddWithValue("@Pesel", pesel.Text);
+                //cmd.Parameters.AddWithValue("@JobTitle", jobTitle.Text);
+                //cmd.Parameters.AddWithValue("@DateEmp", dateEmp.Text);
+                //cmd.Parameters.AddWithValue("@BusniessPhone", busniessPhone.Text);
+                //cmd.Parameters.AddWithValue("@Phone", phone.Text);
+                //cmd.Parameters.AddWithValue("@Adress", adress.Text);
+                //cmd.Parameters.AddWithValue("@Salary", salary.Text);
 
-                cmd.ExecuteNonQuery();
+
+
+                var kl = cmd.ExecuteReader();
+
+                // cmd.ExecuteNonQuery();
                 dataGridView1.Rows.Clear();
-                data_show();
+                data_show(kl);
+
             }
             catch (Exception)
             {
@@ -290,7 +318,7 @@ namespace ListOfWorkers
         }
 
 
-    
+
         void ClearAllText(Control con)
         {
             foreach (Control c in con.Controls)
